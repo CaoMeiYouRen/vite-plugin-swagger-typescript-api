@@ -1,0 +1,25 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js@lts environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "lts/*"
+          # cache: "yarn"
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/cache
+            !~/cache/exclude
+            **/node_modules
+          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+      - run: yarn
+      - run: yarn run lint
+      - run: yarn run build
