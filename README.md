@@ -35,18 +35,41 @@
 
 
 - node >=12
+- swagger-typescript-api >= 9
+- vite >=2 
 
 ## 安装
 
 ```sh
-npm install vite-plugin-swagger-typescript-api
+# 本插件依赖 swagger-typescript-api、vite ，故需要先安装
+npm i -D swagger-typescript-api vite
+
+npm i -D vite-plugin-swagger-typescript-api
 ```
 
 ## 使用
 
-```sh
-npm run start
+```ts
+// 在 vite.config.ts 文件中添加如下配置
+import { defineConfig } from 'vite'
+import { vitePluginSwaggerTypescriptApi } from 'vite-plugin-swagger-typescript-api'
+
+
+// vite 相关配置请参考 https://vitejs.dev/config/
+export default defineConfig({
+    plugins: [
+        vitePluginSwaggerTypescriptApi({ // swagger-typescript-api 的配置，具体可参考 https://github.com/acacode/swagger-typescript-api
+            name: 'myApi.ts', //要生成的文件名称
+            output: path.resolve('./src/apis'), // 生成的文件所在的文件夹，注意要使用 path.resolve 解析出绝对路径，否则路径可能会有错误
+            input: path.resolve('./swagger.json'), // 从本地文件载入，路径问题同 output
+            url: "http://api.com/swagger.json", // 如果从远程接口载入
+            httpClientType: 'axios', // or "fetch" 生成的接口类型
+        })
+    ]
+})
 ```
+
+在执行 `vite` 命令后可在 `src\apis\myApi.ts` 路径看到生成的文件，每次启动开发环境时会去生成 api 文件，生产环境（编译时）不会调用。
 
 ## 开发
 
