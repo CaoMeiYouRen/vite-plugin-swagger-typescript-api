@@ -4,7 +4,7 @@
     <img alt="Version" src="https://img.shields.io/npm/v/vite-plugin-swagger-typescript-api.svg">
   </a>
   <a href="https://github.com/CaoMeiYouRen/vite-plugin-swagger-typescript-api/actions?query=workflow%3ARelease" target="_blank">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/vite-plugin-swagger-typescript-api/Release">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/vite-plugin-swagger-typescript-api/release.yml?branch=master">
   </a>
   <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
   <a href="https://github.com/CaoMeiYouRen/vite-plugin-swagger-typescript-api#readme" target="_blank">
