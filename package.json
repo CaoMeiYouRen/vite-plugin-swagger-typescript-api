@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-swagger-typescript-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于 swagger-typescript-api 的 vite 插件，自动化生成 API 接口",
   "author": "CaoMeiYouRen",
   "private": false,
