@@ -1,7 +1,7 @@
 import { PluginOption } from 'vite'
 import { generateApi, GenerateApiParams } from 'swagger-typescript-api'
 
-export type GenerateApiOption = Omit<GenerateApiParams, 'url' | 'spec'> | Omit<GenerateApiParams, 'input' | 'spec'> | Omit<GenerateApiParams, 'input' | 'url'>
+export type GenerateApiOption = GenerateApiParams
 
 function vitePluginSwaggerTypescriptApi(option: GenerateApiOption): PluginOption {
     if (!option) {
