@@ -7,6 +7,8 @@ import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
 import analyzer from 'rollup-plugin-analyzer'
 import replace from '@rollup/plugin-replace'
+import dts from 'rollup-plugin-dts'
+
 import { dependencies, peerDependencies, name } from './package.json'
 
 const external = Object.keys({ ...dependencies, ...peerDependencies }) // 默认不打包 dependencies, peerDependencies
@@ -74,11 +76,7 @@ export default defineConfig([
             name: outputName,
             sourcemap: true,
         },
-        plugins: getPlugins({
-            isBrowser: false,
-            isDeclaration: true,
-            isMin: false,
-        }),
+        plugins: [dts()],
     },
     {
         input: 'src/index.ts',
